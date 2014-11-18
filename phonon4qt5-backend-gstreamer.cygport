@@ -1,0 +1,18 @@
+inherit qt5 cmake
+
+NAME="phonon4qt5-backend-gstreamer"
+VERSION=4.8.0
+RELEASE=1
+CATEGORY="KDE"
+SUMMARY="Qt5 multimedia abstraction layer (GStreamer backend)"
+DESCRIPTION="Qt5 multimedia engine with support for multiple backends"
+
+SRC_URI="mirror://kde/stable/phonon/phonon-backend-gstreamer/${VERSION}/phonon-backend-gstreamer-${VERSION}.tar.xz"
+SRC_DIR="phonon-backend-gstreamer-${VERSION}"
+
+CYGCMAKE_ARGS="-DPHONON_BUILD_PHONON4QT5=ON -D__KDE_HAVE_GCC_VISIBILITY=OFF"
+
+PKG_NAMES="${NAME}"
+phonon4qt5_backend_gstreamer_REQUIRES="phonon-backend-gstreamer-common"
+phonon4qt5_backend_gstreamer_CONTENTS="usr/lib/qt5/ usr/share/doc/"
+PKG_IGNORE="etc/postinstall/ usr/share/icons/hicolor/*/*/phonon-gstreamer.*"
